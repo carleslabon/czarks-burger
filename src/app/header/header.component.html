@@ -1,0 +1,11 @@
+<nav class="navbar navbar-default">
+  <a class="navbar-brand" routerLink="/">Czark's Burger</a>
+  <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a routerLink="/products">Home</a></li>
+      <li><a class="nav-link" routerLink="/login" *ngIf="!loginActive">Login</a></li>
+      <li><a routerLink="/register" *ngIf="!loginActive">Register</a></li>
+      <li><a (click)="authService.signOut()" *ngIf="!loginActive" style="cursor: pointer;">Logout</a></li>
+    </ul>
+  </div>
+</nav>

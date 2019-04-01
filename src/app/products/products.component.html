@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-xs-4 col-xs-offset-2 text-center">
+      <h2>Burger Menu:</h2>
+            <div class="list-group">
+              <a class="list-group-item" *ngFor="let burger of burgerMenu" style="cursor: pointer;">
+                  <img style="max-height: 150px; max-width: 250px; border-radius: 5px;" src="{{burger.image}}">
+                  <div class="row">
+                      <div class="col-xs-6">
+                          <h4>{{burger.name}}</h4>
+                          <p>{{burger.detail}}</p>
+                      </div>
+                      <div class="col-xs-6" style="margin-top: 7px;">
+                          <p>Price: Php {{burger.price}}</p>
+                          <input #quantity type="number" value="1" min="1" size="1">
+                      </div>
+                  </div>
+                  <button style="margin-top: 7px;" class="btn btn-success" (click)="addtoCart(burger, quantity)">Order</button>
+              </a>
+            </div>
+    </div>
+  <div class="col-xs-4">
+    <h2 class="text-center">Orders:</h2>
+    <table class="table table-responsive table-hover" style="cursor: pointer;">
+      <thead>
+        <tr>
+          <td>Burger Name:</td>
+          <td>Price:</td>
+          <td>Quantity:</td>
+          <td>Total:</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let burger of burgerMenu">
+          <td>{{burger.name}}</td>
+          <td>{{burger.price}}</td>
+          <td>{{quantity}}</td>
+          <td>{{ quantity * burger.price }}</td>
+        </tr><br>
+        <button class="btn btn-success" (click)="onBuy(burger, quantity)">Buy</button>
+      </tbody>
+    </table>
+  </div>
+</div>
+
